@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-unresolved
 import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import Counter from '../components/Counter';
+import ConnectFour from '../components/ConnectFour';
 import {
   increment,
   decrement,
@@ -28,4 +28,4 @@ function mapDispatchToProps(dispatch: Dispatch) {
   );
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+export default connect(null, null)(ConnectFour);

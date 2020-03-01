@@ -1,0 +1,16 @@
+.hoverPanel {
+  position: absolute;
+  top: 60px;
+  left: 50px;
+  height: 780px;
+  width: 910px;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.selectionSection {
+  flex: 1;
+}
