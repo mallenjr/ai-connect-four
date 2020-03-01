@@ -2,13 +2,13 @@
 
 ## What does this thing do?
 
-This is a web-based version of connect four where the user plays against an AI agent that learns from their playstyle and the gaol is the have the agent win after amount of games. The challenge is to win as many games as possible against the agent before it's just too good to beat you.
+This is a web-based version of connect four where the user plays against an AI agent that learns from their playstyle and the gaol is the have the agent win after amount of games. The challenge is to win as many games as possible against the agent before it's just too good to lose. This repo is based off of the wonderful [**electron-react-boilerplate**](https://github.com/electron-react-boilerplate/electron-react-boilerplate) project so show them some love.
 
 ## Okay, but how?
 
 The agent will be trained and run through the TensorflowJS library as this is a web application. The specifics will be updated as we figure out more about the problem at hand.
 
-## Install
+## Installation
 
 Install the dependencies with yarn.
 
