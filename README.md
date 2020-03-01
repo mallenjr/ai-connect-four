@@ -8,6 +8,15 @@ This is a web-based version of connect four where the user plays against an AI a
 
 The agent will be trained and run through the TensorflowJS library as this is a web application. The specifics will be updated as we figure out more about the problem at hand.
 
+## Install
+
+Install the dependencies with yarn.
+
+```bash
+$ cd ai-connect-four
+$ yarn
+```
+
 ## Starting Development
 
 Start the app in the `dev` environment. This starts the renderer process in [**hot-module-replacement**](https://webpack.js.org/guides/hmr-react/) mode and starts a webpack dev server that sends hot updates to the renderer process:
