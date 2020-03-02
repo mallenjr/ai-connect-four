@@ -2,30 +2,23 @@
 import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import ConnectFour from '../components/ConnectFour';
-import {
-  increment,
-  decrement,
-  incrementIfOdd,
-  incrementAsync
-} from '../actions/counter';
-import { counterStateType } from '../reducers/types';
+import { dropChecker } from '../actions/connectFour';
+import { StateShape } from '../reducers/types';
 
-function mapStateToProps(state: counterStateType) {
+function mapStateToProps(state: StateShape) {
   return {
-    counter: state.counter
+    board: state.connectFour.board,
+    activeColumn: state.connectFour.activeColumn
   };
 }
 
 function mapDispatchToProps(dispatch: Dispatch) {
   return bindActionCreators(
     {
-      increment,
-      decrement,
-      incrementIfOdd,
-      incrementAsync
+      dropChecker
     },
     dispatch
   );
 }
 
-export default connect(null, null)(ConnectFour);
+export default connect(mapStateToProps, mapDispatchToProps)(ConnectFour);

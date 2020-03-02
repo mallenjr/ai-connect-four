@@ -42,29 +42,60 @@ function Cell(props: CellProps) {
 type ColumnProps = {
   position: number;
   values: number[];
+  hover: boolean;
 };
 
 export const Column = function(props: ColumnProps) {
-  const { position, values } = props;
+  const { position, values, activeColumn } = props;
 
-  // eslint-disable-next-line react/jsx-key
-  const cells = values.map((val, x) => <Cell position={x + 1} value={val} />);
+  const cells = [...Array(6).keys()].map(x => (
+    <Cell key={x} position={x + 1} value={values[x]} />
+  ));
   return (
     <>
-      <Group x={130 * position}>{cells}</Group>
+      <Group x={130 * position}>
+        {position === activeColumn.column && activeColumn.player > 0 && (
+          <Circle
+            x={65}
+            y={0}
+            radius={45}
+            fill={activeColumn.player === 1 ? 'red' : 'yellow'}
+            opacity={1}
+          />
+        )}
+        {cells}
+      </Group>
     </>
   );
 };
 
-type SelectionProps = {};
+type SelectionProps = {
+  dropChecker: (col: number, player: number) => void;
+  setActiveChecker: (col: number, player: number) => void;
+  board: number[][];
+};
 
 export const SelectionSurface = function(props: SelectionProps) {
-  const sections = [...Array(6).keys()].map(x => (
-    // eslint-disable-next-line react/jsx-key
+  const { dropChecker, board, setActiveChecker } = props;
+
+  const dropWrapper = (col: number) => {
+    if (board[col][6] === 6) {
+      return;
+    }
+    dropChecker(col, 1);
+  };
+
+  const activeWrapper = (col: number, isOn: number) => {
+    setActiveChecker(col, isOn);
+  };
+
+  const sections = [...Array(7).keys()].map(x => (
     <div
+      key={x}
       className={styles.selectionSection}
-      onMouseEnter={() => console.log(`entered: ${x}`)}
-      onMouseLeave={() => console.log(`exited: ${x}`)}
+      onMouseEnter={() => activeWrapper(x, 1)}
+      onMouseLeave={() => activeWrapper(x, 0)}
+      onClickCapture={() => dropWrapper(x)}
     >
       {x}
     </div>

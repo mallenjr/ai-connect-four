@@ -4,22 +4,22 @@ import { Link } from 'react-router-dom';
 import { Stage, Layer, Rect, Text, Circle, Line } from 'react-konva';
 import { render } from 'react-dom';
 import styles from './ConnectFour.css';
-import { Column, SelectionSurface } from './Column';
+import { Column } from './Column';
+import { SelectionSurface } from '../containers/Column';
 import routes from '../constants/routes.json';
 
-export default function Counter(props: Props) {
-  const example = [
-    [1, 0, 0, 0, 0, 0],
-    [2, 1, 0, 0, 0, 0],
-    [1, 2, 1, 0, 0, 0],
-    [1, 2, 1, 0, 0, 0],
-    [1, 2, 1, 0, 0, 0],
-    [1, 2, 1, 0, 0, 0],
-    [1, 2, 1, 0, 0, 0]
-  ];
+export default function ConnectFour(props: Props) {
+  const { board, activeColumn } = props;
 
-  // eslint-disable-next-line react/jsx-key
-  const columns = example.map((val, x) => <Column position={x} values={val} />);
+  const columns = board.map((val, x) => (
+    <Column
+      // eslint-disable-next-line react/no-array-index-key
+      key={`${x}`}
+      position={x}
+      values={val}
+      activeColumn={activeColumn}
+    />
+  ));
   return (
     <div>
       <div className={styles.backButton} data-tid="backButton">
