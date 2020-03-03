@@ -273,6 +273,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.12.1",
     "@hot-loader/react-dom": "^16.11.0",
+    "@tensorflow/tfjs": "^1.5.2",
     "connected-react-router": "^6.6.1",
     "core-js": "^3.6.4",
     "devtron": "^1.4.0",

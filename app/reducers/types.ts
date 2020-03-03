@@ -3,7 +3,7 @@ import { Dispatch as ReduxDispatch, Store as ReduxStore, Action } from 'redux';
 export type StateShape = {
   counter: number;
   connectFour: {
-    board: number[7][6];
+    board: number[7][7];
     activeColumn: {
       column: number;
       player: number;
