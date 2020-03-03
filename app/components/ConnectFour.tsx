@@ -1,9 +1,6 @@
 import React from 'react';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import Konva from 'konva';
 import { Link } from 'react-router-dom';
 import { Stage, Layer } from 'react-konva';
-// import { render } from 'react-dom';
 import styles from './ConnectFour.css';
 import { Column } from './Column';
 import { SelectionSurface } from '../containers/Column';

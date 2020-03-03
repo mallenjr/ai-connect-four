@@ -1,6 +1,4 @@
 import React from 'react';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import Konva from 'konva';
 import { Rect, Circle, Group } from 'react-konva';
 import styles from './Column.css';
 
@@ -41,7 +39,6 @@ function Cell(props: CellProps) {
 type ColumnProps = {
   position: number;
   values: number[];
-  hover: boolean;
   activeColumn: {
     column: number;
     player: number;

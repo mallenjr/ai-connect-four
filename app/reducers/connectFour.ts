@@ -17,9 +17,16 @@ const initialState = {
   }
 };
 
+interface ConnectFourAction extends Action<string> {
+  payload: {
+    column: number;
+    player: number;
+  };
+}
+
 export default function connectFour(
   state = initialState,
-  action: Action<string>
+  action: ConnectFourAction
 ) {
   switch (action.type) {
     case DROP_CHECKER:
