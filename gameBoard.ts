@@ -1,7 +1,5 @@
 type currentBoard = {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-  // @ts-ignore
-  board: number[7][7];
+  board: number[][];
 };
 
 class GameBoard {
