@@ -1,8 +1,7 @@
 import React from 'react';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import Konva from 'konva';
-import { Stage, Layer, Rect, Text, Circle, Line, Group } from 'react-konva';
-import { render } from 'react-dom';
-import { type } from 'os';
+import { Rect, Circle, Group } from 'react-konva';
 import styles from './Column.css';
 
 type CellProps = {
@@ -43,9 +42,13 @@ type ColumnProps = {
   position: number;
   values: number[];
   hover: boolean;
+  activeColumn: {
+    column: number;
+    player: number;
+  };
 };
 
-export const Column = function(props: ColumnProps) {
+export const Column = (props: ColumnProps) => {
   const { position, values, activeColumn } = props;
 
   const cells = [...Array(6).keys()].map(x => (
@@ -75,7 +78,7 @@ type SelectionProps = {
   board: number[][];
 };
 
-export const SelectionSurface = function(props: SelectionProps) {
+export const SelectionSurface = (props: SelectionProps) => {
   const { dropChecker, board, setActiveChecker } = props;
 
   const dropWrapper = (col: number) => {
